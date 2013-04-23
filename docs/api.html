@@ -449,9 +449,9 @@ module loading that may use that module. See the <a href="#errbacks">errback sec
 
 <p>When using require() in the top-level HTML page (or top-level script file that does not define a module), a configuration object can be passed as the first option:</p>
 
-<pre><code>&lt;script src="scripts/require.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-  require.config({
+<pre><code class="javascript">&lt;script src="scripts/require.js"&gt;&lt;/script&gt;
+&lt;script&gt;</code></pre>
+<pre><code>  require.config({
     baseUrl: "/another/path",
     paths: {
         "some": "some/v1.0"
@@ -466,14 +466,14 @@ module loading that may use that module. See the <a href="#errbacks">errback sec
         //This callback is optional.
     }
   );
-&lt;/script&gt;
+<pre><code>&lt;/script&gt;
 </code></pre>
 
 <p>Also, you can define the config object as the global variable <code>require</code> <strong>before</strong> require.js is loaded, and have the values applied automatically.
 This example specifies some dependencies to load as soon as require.js defines require():</p>
 
-<pre><code>&lt;script&gt;
-    var require = {
+<pre><code>&lt;script&gt;</code></pre>
+<pre><code>    var require = {
         deps: ["some/module1", "my/module2", "a.js", "b.js"],
         callback: function(module1, module2) {
             //This function will be called when all the dependencies
@@ -481,8 +481,8 @@ This example specifies some dependencies to load as soon as require.js defines r
             //function could be called before the page is loaded.
             //This callback is optional.
         }
-    };
-&lt;/script&gt;
+    };</code></pre>
+<pre><code>&lt;/script&gt;
 &lt;script src="scripts/require.js"&gt;&lt;/script&gt;
 </code></pre>
 
@@ -658,8 +658,7 @@ define() and register as anonymous modules. Also, <strong>only use absolute modu
 
 <p>There is also support for a "*" map value which means "for all modules loaded, use this map config". If there is a more specific map config, that one will take precedence over the star config. Example:</p>
 
-<pre><code>
-requirejs.config({
+<pre><code>requirejs.config({
     map: {
         '*': {
             'foo': 'foo1.2'
@@ -855,8 +854,8 @@ function (cart,   store,   util) {
 <p>As mentioned in <a href="#config">Configuration Options</a>, multiple versions of a module can be loaded in a page by using different "context" configuration options. require.config() returns a require function that will use the context configuration. Here is an example that loads two different versions of the alpha and beta modules (this example is taken from one of the test files):</p>
 
 <pre><code>&lt;script src="../require.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-var reqOne = require.config({
+&lt;script&gt;</code></pre>
+<pre><code>var reqOne = require.config({
   context: "version1",
   baseUrl: "version1"
 });
@@ -894,8 +893,8 @@ function(require,   alpha,   beta) {
       }
     );
   }, 100);
-});
-&lt;/script&gt;
+});</code></pre>
+<pre><code>&lt;/script&gt;
 </code></pre>
 
 <p>Note that "require" is specified as a dependency for the module. This allows the require() function that is passed to the function callback to use the right context to load the modules correctly for multiversion support. If "require" is not specified as a dependency, then there will likely be an error.</p>
