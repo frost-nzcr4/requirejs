@@ -346,7 +346,7 @@ define(["require", "a"],
 
 <p>Normally you should not need to use require() to fetch a module, but instead rely on the module being passed in to the function as an argument. Circular dependencies are rare, and usually a sign that you might want to rethink the design. However, sometimes they are needed, and in that case, use require() as specified above.</p>
 
-<p>If you are familiar with CommonJS modules, you could instead use <strong>exports</strong> to create an empty object for the module that is available immediately for reference by other modules. By doing this on both sides of a circular dependency, you can then safely hold on to the the other module. This only works if each module is exporting an object for the module value, not a function:</p>
+<p>If you are familiar with CommonJS modules, you could instead use <strong>exports</strong> to create an empty object for the module that is available immediately for reference by other modules. By doing this on both sides of a circular dependency, you can then safely hold on to the other module. This only works if each module is exporting an object for the module value, not a function:</p>
 
 <pre><code>//Inside b.js:
 define(function(require, exports, module) {
